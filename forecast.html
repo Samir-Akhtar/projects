@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Day Weather Forecast for {{ city.title() }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styling.css') }}">
+</head>
+<body>
+    <h3>7-Day Forecast for {{ city.title() }}</h3>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Max Temp (°C)</th>
+            <th>Min Temp (°C)</th>
+            <th>Rain (mm)</th>
+            <th>Alerts</th>
+        </tr>
+        {% for day in forecast %}
+            <tr>
+                <td>{{ day.date }}</td>
+                <td>{{ day.max_temp }}</td>
+                <td>{{ day.min_temp }}</td>
+                <td>{{ day.rain }}</td>
+                <td>{{ day.alert }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        {% for alert, link in safety_links.items() %}
+            <p>
+                <strong>{{ alert }}:</strong> 
+                <a href="{{ link }}" target="_blank">How to stay safe and prepare</a>
+            </p>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction for {{ city.title() }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styling.css') }}">
+</head>
+<body>
+    <h3>Predicted Weather for {{ city.title() }}</h3>
+    <p>Max: {{ pred_max }} °C</p>
+    <p>Min: {{ pred_min }} °C</p>
+    <p>Precipitation: {{ pred_precip }} mm</p>
+    <form action="/forecast" method="post">
+        <input type="hidden" name="city" value="{{ city }}">
+        <button type="submit">Check 7-Day Forecast</button>
+    </form>
+</body>
+</html>
