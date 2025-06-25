@@ -1,4 +1,4 @@
-For the AI ectreme weather prediction web app:
+For the AI extreme weather prediction web app:
 in VS code
 -use all files
 -all ".html" files need to be in a "templates" folder
